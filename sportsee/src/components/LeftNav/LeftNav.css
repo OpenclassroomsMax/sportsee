@@ -1,0 +1,39 @@
+.leftnav_copiryght{
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    color: white;
+    transform: rotate(180deg);    
+    left: 42px;
+    position: absolute;
+    bottom: 0px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    size: 12px;
+    line-height: 24px;
+    margin: auto;
+}
+
+.leftnav_container{
+    width: 117px;
+    height: 1024px;
+    background-color: #020203;
+
+}
+
+.leftnav_navigation{
+    width: 64px;
+    height: 316px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 30%;
+    left: 26px;
+}
+
+.link_icon{
+    width: 64px;
+    height: 64px;
+    display: flex;
+    margin-bottom: 20px;
+}
+

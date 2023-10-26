@@ -1,0 +1,34 @@
+.logo_sportsee{
+    width: 178px;
+    height: 60.93px;
+    margin-right: 150px;
+    margin-left: 26px;
+}
+
+.header_container{
+    background-color: #020203;
+    height: 91px;
+    width: 1440px;
+    display: flex;
+    align-items: center;
+}
+
+.header_navigation{
+    width: 994px;
+    height: 24px;
+    top: 36px;
+    left: 355px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link_nav{
+    font-family: 'Roboto';
+    font-weight: 500;
+    size: 24px;
+    line-height: 24px;
+    width: 88px;
+    color: white;
+    text-decoration: none;
+}
