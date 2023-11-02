@@ -1,0 +1,17 @@
+.button-containers {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    width: 1126px;
+    height: 779px;
+    margin-left: 20%;
+}
+
+a {
+    margin-top: 10px;
+    text-decoration: none;
+    color: red;
+}
+

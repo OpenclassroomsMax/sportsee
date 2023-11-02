@@ -8,9 +8,10 @@
 .header_container{
     background-color: #020203;
     height: 91px;
-    width: 1440px;
+    width: 100%;
     display: flex;
     align-items: center;
+    z-index: 2;
 }
 
 .header_navigation{

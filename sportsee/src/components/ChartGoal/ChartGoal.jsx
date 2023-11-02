@@ -5,10 +5,6 @@ import PropTypes from "prop-types";
 import "./ChartGoal.css"
 
 
-/** create a PieChart with score value
- * @param  {object} {data}
- * @return {JSX}
- */
  export default function ScoreChart({ data }) {
      
   const score = [
@@ -17,8 +13,8 @@ import "./ChartGoal.css"
   ];
 
   return (
-    <div>
-      <h1>Score</h1>
+    <div className="score-container">
+      <h1 className="score-title">Score</h1>
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
@@ -38,8 +34,8 @@ import "./ChartGoal.css"
           </Pie>
         </PieChart>
       </ResponsiveContainer>
-      <div>
-        <p>
+      <div className="score-infos_containers">
+        <p className="score-infos">
           {score[0].value * 100}%<br />
         </p>
         de votre
