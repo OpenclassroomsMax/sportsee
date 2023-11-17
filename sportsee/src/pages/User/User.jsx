@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router";
-import { getData } from "../../utils/getData";
+
 
 import UserMain from "../../components/UserMain/UserMain";
 import BarCharts from "../../components/BarCharts/BarCharts"
@@ -17,6 +17,12 @@ import iconLipides from "../../assets/iconLipides.svg";
 
 
 import "../User/User.css"
+import { urlapi } from "../../utils/const/urlapi";
+import { urlmockeddata } from "../../utils/const/urlmockeddata";
+import { Getdata } from "../../utils/ApiCall";
+import { FetchContext } from "../../utils/context/FetchContext"
+
+
 
 
 export default function User() {
@@ -24,22 +30,45 @@ export default function User() {
   const [data, setData] = useState([]);
   const { id } = useParams();
   
-  useEffect(() => {
+  const {fetch} = useContext(FetchContext)
+  const url = fetch === "API" ? urlapi : urlmockeddata;
+
+  /*useEffect(() => {
     const data = async () => {
-      const request = await getData("USER_MAIN_DATA",id);
+      const request = await getdata(id);
+      console.log(request)
       if (!request) return alert("data error");
-      setData(request.data);
+      setData(request);
+      console.log(request)
     };
-    data();
-  }, [id]);
-  if (data.length === 0) return null;
+    data() 
+  }, [id]);*/
+  /*console.log(data.length)*/
+ if (data === 0) return null;
 
-
+  /*const activity = getdata(url.useractivityapidata(id));
+  const averagesessions = getdata (url.useraveragesessionapidata(id));*/
+  const  usermain = Getdata (url.usermainapidata(id));
+  /*const performance = getdata (url.userperformanceapidata(id));*/
+  /*console.log(isloadingamin)*/
+  console.log(usermain);
+  if(usermain.isloading){
+    return <p>laoding...</p>
+  }
+  
 
     return ( 
         <div className="user-chart_containers">
-            <UserMain name={data.userInfos.firstName}/>
-            <div className="chart-content">
+            <UserMain name={usermain.res.id}/>
+
+            
+        </div>
+     );
+}
+/*<ChartGoal data={data} />
+ <UserAverageSessions/>*/
+
+ /*<div className="chart-content">
               <BarCharts />
               <div className="chart-container">
                 <ChartAverageSession />
@@ -69,9 +98,4 @@ export default function User() {
               text="Lipides"
               />
 
-            </aside>
-        </div>
-     );
-}
-/*<ChartGoal data={data} />
- <UserAverageSessions/>*/
+            </aside>*/
