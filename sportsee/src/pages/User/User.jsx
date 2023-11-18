@@ -48,18 +48,18 @@ export default function User() {
 
   /*const activity = getdata(url.useractivityapidata(id));
   const averagesessions = getdata (url.useraveragesessionapidata(id));*/
-  const  usermain = Getdata (url.usermainapidata(id));
+  const [errorMain, isLoadingMain, dataMain] = Getdata(url.usermainapidata(id));
   /*const performance = getdata (url.userperformanceapidata(id));*/
-  /*console.log(isloadingamin)*/
-  console.log(usermain);
-  if(usermain.isloading){
+  console.log(dataMain?.id)
+  if(isLoadingMain){
     return <p>laoding...</p>
   }
+  
   
 
     return ( 
         <div className="user-chart_containers">
-            <UserMain name={usermain.res.id}/>
+          <UserMain name={dataMain?.userInfos.firstName}/>
 
             
         </div>

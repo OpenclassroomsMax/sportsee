@@ -12,37 +12,49 @@ import UserAveragedata from "./Class/userAverage";
 
 
 export const Getdata =  (url) => {
-  
-    const [res, setRes] = useState(null);
-    const [isloading, setIsloading] = useState(false);
-    useEffect  (  ()  =>  {
-      setIsloading(true);
-      fetch(url).then(result => result.json())
-      .then(data => {
-        console.log(data);
-        setIsloading(false);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState({});
+
+  function checkError(response) {
+    //check if >= 200 && response.status <= 299
+    if (!response.ok) {
+      throw Error(response.statusText);
+    } else {
+      return response.json();
+    }
+  }
+
+  useEffect(() => {
+    console.log("useEffect")
+    setIsLoading(true);
+    fetch(url)
+      .then(checkError)
+      .then((result) => {
+        console.log("result=", result)
         if (url.includes("/activity")){
-          setRes(new UserActivitydata(data.data.userId, data.data.sessions))  
+          setData(new UserActivitydata(result.data.userId, result.data.sessions))  
         }
         if (url.includes("/performance")){
-          setRes(new UserPerformancedata(data.data.userId, data.data.kind, data.data.data))  
+          setData(new UserPerformancedata(result.data.userId, result.data.kind, result.data.data))  
         }
         if (url.includes("/average-sessions")){
-          setRes(new UserAveragedata(data.data.userId, data.data.sessions))
+          setData(new UserAveragedata(result.data.userId, result.data.sessions))
         }
         /*return res.data;*/
        /*console.log(res.data.data.id);*/
-       setRes (new Userdata(data.data.id, data.data.userInfos, data.data.todayScore, data.data.keyData))
+       setData (new Userdata(result.data.id, result.data.userInfos, result.data.todayScore, result.data.keyData))
+        // setData(result);
+        setIsLoading(false);
       })
-      
-    },[url]);
-    console.log(res)
-    return {res, isloading};
-    /*return res;*/
-    
-    
-  
-  
+      .catch((error) => {
+        setError(error);
+        setIsLoading(false);
+      });
+  }, [url]);
+
+  console.log("dataaaaaaaaaaaaa",error, isLoading, data)
+  return [error, isLoading, data];
 };
 
 
