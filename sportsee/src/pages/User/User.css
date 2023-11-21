@@ -10,7 +10,9 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 2em;
-    justify-content: space-between;
+    width: 910px;
+    margin-top: 40px;
+
 }
 
 .chart-content{
@@ -26,16 +28,20 @@ main {
     width: 100%;
     margin: auto;
     margin-top: 2%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .thumbnail-wrapper{
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-between;
     max-width: 835px;
     flex-direction: column;
     height: 670px;
     margin: auto;
     margin-left: 2rem;
+    width: 256px;
+    margin-top: -370px;
 }
 

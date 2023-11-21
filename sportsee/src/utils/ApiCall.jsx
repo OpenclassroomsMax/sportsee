@@ -33,17 +33,23 @@ export const Getdata =  (url) => {
       .then((result) => {
         console.log("result=", result)
         if (url.includes("/activity")){
+          console.log("je suis là 1")
           setData(new UserActivitydata(result.data.userId, result.data.sessions))  
         }
         if (url.includes("/performance")){
+          console.log("je suis là 2")
           setData(new UserPerformancedata(result.data.userId, result.data.kind, result.data.data))  
         }
         if (url.includes("/average-sessions")){
+          console.log("je suis là 3")
           setData(new UserAveragedata(result.data.userId, result.data.sessions))
         }
+        
+        /*setData (new Userdata(result.data.id, result.data.userInfos, result.data.todayScore, result.data.keyData))*/
+        
         /*return res.data;*/
        /*console.log(res.data.data.id);*/
-       setData (new Userdata(result.data.id, result.data.userInfos, result.data.todayScore, result.data.keyData))
+       /*setData (new Userdata(result.data.id, result.data.userInfos, result.data.todayScore, result.data.keyData))*/
         // setData(result);
         setIsLoading(false);
       })

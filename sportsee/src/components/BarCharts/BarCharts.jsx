@@ -8,24 +8,13 @@ import ToolType from '../Tooltip/Tooltip';
 
 
 
- export default  function BarCharts() {
+ export default  function BarCharts({data}) {
 
-    const [data, setData] = useState([]);
-	const {id} = useParams();
-
-    useEffect(() => {
-		const data = async () => {
-            const request = await getData("USER_ACTIVITY",id);
-			if (!request) return alert('data error');
-			
-			setData(request.data.sessions);
-		};
-		data();
-	}, [id]);
-	if (data.length === 0) return null;
-
-	for (let i = 0 ; i < data.length ; i ++)
-        {data[i].day = i + 1;}
+    const xAxisTickFormat = (value) => {
+        const valueDay = value.split('-')
+        
+        return (Number(valueDay[2]))
+    }
     
     return (  
         <div className='barchats-containers'>
@@ -45,7 +34,7 @@ import ToolType from '../Tooltip/Tooltip';
             <ResponsiveContainer  height={200} >
                 <BarChart data={data} barGap={8} barCategoryGap={1}>
                     <CartesianGrid vertical={false} strokeDasharray="1 1"/>
-                    <XAxis dataKey="day" tickLine={false} tick={{fontSize: 14}} dy={15} stroke="1 1"/>
+                    <XAxis dataKey="day" tickLine={false} tick={{fontSize: 14}} dy={15} stroke="1 1" tickFormatter={xAxisTickFormat}/>
                     <YAxis yAxisId="kilogram" dataKey="kilogram" type="number" domain={['dataMin - 2', 'dataMax + 1']} tickCount="4" axisLine={false} orientation="right" tickLine={false} tick={{fontSize: 14}} dx={15}/>
                     <YAxis yAxisId="calories" dataKey="calories" type="number" domain={['dataMin - 20', 'dataMax + 10']}  hide={true}/>
                     <Tooltip content={<ToolType/>}/>
