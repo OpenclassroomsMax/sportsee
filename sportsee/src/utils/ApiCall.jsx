@@ -45,7 +45,7 @@ export const Getdata =  (url) => {
           setData(new UserAveragedata(result.data.userId, result.data.sessions))
         }
         
-        /*setData (new Userdata(result.data.id, result.data.userInfos, result.data.todayScore, result.data.keyData))*/
+        /*setData (new Userdata(result.data.id, result.data.userInfos,result.data.todayScore, result.data.score, result.data.keyData))*/
         
         /*return res.data;*/
        /*console.log(res.data.data.id);*/

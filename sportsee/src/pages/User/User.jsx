@@ -54,7 +54,7 @@ export default function User() {
   const [errorPerformance, isLoadingPerformance, dataPerformance] = Getdata(url.userperformanceapidata(id));
 
   /*const performance = getdata (url.userperformanceapidata(id));*/
-  console.log(dataActivity?.sessions);
+  /*console.log(dataMain?.todayScore);*/
   if(isLoadingMain){
     return <p>laoding...</p>
   }
@@ -69,7 +69,42 @@ export default function User() {
   }
 
     return ( 
-        <div className="user-chart_containers">
+      <div className="user-chart_containers">
+      <UserMain name={dataMain?.userInfos?.firstName}/>
+      <BarCharts data={dataActivity?.sessions}/>
+      <div className="chart-container">
+        <ChartAverageSession data={dataAverageSession?.sessions}/>
+        <RadarCharts data={dataPerformance}/>
+        <ChartGoal data={dataMain}/>
+      </div>
+      <aside className="thumbnail-wrapper">
+          <Thumbnail 
+          icon={iconCalories}
+          info={`${dataMain?.keyData?.calorieCount}kCal`}
+          text="Calories"
+          />
+          <Thumbnail 
+          icon={iconProteines}
+          info={`${dataMain?.keyData?.proteinCount}g`}
+          text="Proteines"
+          />
+          <Thumbnail 
+          icon={iconGlucides}
+          info={`${dataMain?.keyData?.carbohydrateCount}g`}
+          text="Glucides"
+          />
+          <Thumbnail 
+          icon={iconLipides}
+          info={`${dataMain?.keyData?.lipidCount}g`}
+          text="Lipides"
+          />
+
+        </aside>
+    </div>
+        
+     );
+}
+/*<div className="user-chart_containers">
           <UserMain name={dataMain?.userInfos?.firstName}/>
           <BarCharts data={dataActivity?.sessions}/>
           <div className="chart-container">
@@ -100,56 +135,4 @@ export default function User() {
               />
 
             </aside>
-        </div>
-        
-     );
-}
-/*<BarCharts data={dataActivity?.sessions}/>*/
-/*<ChartAverageSession data={dataAverageSession?.sessions}/>
-                <RadarCharts data={dataPerformance}/>*/
-
-
-
-
-
-
-
-
-
-
-
-/*<ChartGoal data={dataActivity.sessions} />*/
-/*<ChartGoal data={data} />
- <UserAverageSessions/>*/
-
- /*<div className="chart-content">
-              <BarCharts />
-              <div className="chart-container">
-                <ChartAverageSession />
-                <RadarCharts />
-                <ChartGoal data={data}/>
-              </div>
-            </div>
-            <aside className="thumbnail-wrapper">
-              <Thumbnail 
-              icon={iconCalories}
-              info={`${data.keyData.calorieCount}kCal`}
-              text="Calories"
-              />
-              <Thumbnail 
-              icon={iconProteines}
-              info={`${data.keyData.proteinCount}g`}
-              text="Proteines"
-              />
-              <Thumbnail 
-              icon={iconGlucides}
-              info={`${data.keyData.carbohydrateCount}g`}
-              text="Glucides"
-              />
-              <Thumbnail 
-              icon={iconLipides}
-              info={`${data.keyData.lipidCount}g`}
-              text="Lipides"
-              />
-
-            </aside>*/
+        </div>*/
