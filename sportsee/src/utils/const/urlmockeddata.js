@@ -1,26 +1,17 @@
-export const urlmockeddata = { 
+export const urlmockeddata = {
+  usermaindata(id) {
+    return `../data/mokedData/${id}/main.json`;
+  },
 
-usermainmockeddata(id){
+  useractivitydata(id) {
+    return `../data/mokedData/${id}/activity.json`;
+  },
 
-    return (`./data/mokedData/${id}/user-main-data.json`)
-},
+  useraveragesessiondata(id) {
+    return `../data/mokedData/${id}/average-sessions.json`;
+  },
 
-useractivitymockeddata(id){
-
-    return (`./data/mokedData/${id}/user-activity.json`)
-},
-
-useraveragesessionsmockeddata(id){
-
-    return (`./data/mokedData/${id}/user-average-sessions.json`)
-},
-
-userperformancemockeddata(id){
-
-    return (`./data/mokedData/${id}/user-performance.json`)
-},
-
-
-
-
-}
+  userperformancedata(id) {
+    return `../data/mokedData/${id}/performance.json`;
+  },
+};

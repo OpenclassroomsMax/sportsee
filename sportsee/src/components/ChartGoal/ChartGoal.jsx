@@ -1,18 +1,15 @@
 import React from "react";
 import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import PropTypes from "prop-types";
 
-import "./ChartGoal.css"
+import "./ChartGoal.css";
 
-
- export default function ScoreChart({ data }) {
-     
-  const progression = data.score ?? data.todayScore // fix different name issue in api
-  const remainsToBeDone = 1 - progression
+export default function ScoreChart({ data }) {
+  const progression = data.score ?? data.todayScore;
+  const remainsToBeDone = 1 - progression;
   const dataGoal = [
-    { name: 'progression', value: progression, color: '#FF0000' },
-    { name: 'remainsToBeDone', value: remainsToBeDone, color: '#000000' },
-  ]
+    { name: "progression", value: progression, color: "#FF0000" },
+    { name: "remainsToBeDone", value: remainsToBeDone, color: "#000000" },
+  ];
 
   return (
     <div className="score-container">
@@ -46,7 +43,3 @@ import "./ChartGoal.css"
     </div>
   );
 }
-
-ScoreChart.propTypes = {
-  data: PropTypes.object,
-};

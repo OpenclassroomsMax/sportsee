@@ -1,25 +1,17 @@
-export const urlapi = { 
+export const urlapi = {
+  usermaindata(id) {
+    return `http://localhost:3000/user/${id}`;
+  },
 
-usermainapidata(id){
+  useractivitydata(id) {
+    return `http://localhost:3000/user/${id}/activity`;
+  },
 
-    return (`http://localhost:3000/user/${id}`)
-},
+  useraveragesessiondata(id) {
+    return `http://localhost:3000/user/${id}/average-sessions`;
+  },
 
-useractivityapidata(id){
-
-    return (`http://localhost:3000/user/${id}/activity`)
-},
-
-useraveragesessionapidata(id){
-
-    return (`http://localhost:3000/user/${id}/average-sessions`)
-},
-
-userperformanceapidata(id){
-
-    return (`http://localhost:3000/user/${id}/performance`)
-}
-
-
-}
-
+  userperformancedata(id) {
+    return `http://localhost:3000/user/${id}/performance`;
+  },
+};

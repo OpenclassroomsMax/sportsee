@@ -1,23 +1,23 @@
-.header-containers_user{
-    font-weight: 500;
-    font-family: Roboto,sans-serif;
-    line-height: 24px;
+.header-containers_user {
+  font-weight: 500;
+  font-family: Roboto, sans-serif;
+  line-height: 24px;
 }
 
-.title_user{
-    font-size: 48px;
-    width: 355px;
-    height: 24px;
+.title_user {
+  font-size: 48px;
+  width: 355px;
+  height: 24px;
 }
 
-.name-title_user{
-    color: #FF0101;
+.name-title_user {
+  color: #ff0101;
 }
 
-.subtitle_user{
-    font-size: 18px;
-    font-weight: 400;
-    text-align: left;
-    width: 420px;
-    height: 24px;
+.subtitle_user {
+  font-size: 18px;
+  font-weight: 400;
+  text-align: left;
+  width: 420px;
+  height: 24px;
 }

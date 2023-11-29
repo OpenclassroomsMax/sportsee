@@ -1,0 +1,14 @@
+.error-containers{
+    margin-left: 25%;
+    margin-top: 10%;
+}
+.type-error{
+    color: #ff0000;
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 150px;
+}
+.infos-error{
+    font-family: "Roboto";
+    font-size: 18px;
+}
