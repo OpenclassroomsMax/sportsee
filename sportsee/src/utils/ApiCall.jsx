@@ -22,8 +22,6 @@ export const Getdata = (url) => {
     fetch(url)
       .then(checkError)
       .then((result) => {
-        console.log("result=", result);
-        console.log(url);
         setData(
           new Userdata(
             result.data.id,
@@ -63,3 +61,4 @@ export const Getdata = (url) => {
 
   return [error, isLoading, data];
 };
+

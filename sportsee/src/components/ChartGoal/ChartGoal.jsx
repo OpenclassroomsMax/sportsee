@@ -1,9 +1,11 @@
 import React from "react";
 import { ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import PropTypes from 'prop-types'
+
 
 import "./ChartGoal.css";
 
-export default function ScoreChart({ data }) {
+function ScoreChart({ data }) {
   const progression = data.score ?? data.todayScore;
   const remainsToBeDone = 1 - progression;
   const dataGoal = [
@@ -43,3 +45,9 @@ export default function ScoreChart({ data }) {
     </div>
   );
 }
+
+ScoreChart.prototype={
+  data: PropTypes.object.isRequired,
+};
+
+export default ScoreChart;

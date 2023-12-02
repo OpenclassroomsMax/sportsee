@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import {
   BarChart,
@@ -14,7 +15,7 @@ import "../BarCharts/BarCharts.css";
 
 import ToolType from "../Tooltip/Tooltip";
 
-export default function barCharts({ data }) {
+function barCharts({ data }) {
   const xAxisTickFormat = (value) => {
     const valueDay = value.split("-");
 
@@ -86,3 +87,9 @@ export default function barCharts({ data }) {
     </div>
   );
 }
+
+barCharts.prototype = {
+  data: PropTypes.array.isRequired,
+};
+
+export default barCharts;

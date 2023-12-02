@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from 'prop-types'
+
 
 import {
   ResponsiveContainer,
@@ -32,7 +34,7 @@ const xAxisFormatter = (day) => {
   }
 };
 
-export default function ChartAverageSession({ data }) {
+function ChartAverageSession({ data }) {
   return (
     <div className="objectif-container">
       <h2 className="objectif-title">Durée moyenne des sessions</h2>
@@ -66,3 +68,9 @@ export default function ChartAverageSession({ data }) {
     </div>
   );
 }
+
+ChartAverageSession.prototype={
+  data: PropTypes.array.isRequired,
+};
+
+export default ChartAverageSession;

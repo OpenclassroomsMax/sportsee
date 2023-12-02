@@ -1,7 +1,9 @@
 import React from "react";
 import "../TooltipSessions/TooltipSessions.css";
+import PropTypes from 'prop-types';
 
-export default function ToolTypeSessions({ active, payload }) {
+
+function ToolTypeSessions({ active, payload }) {
   if (active) {
     return (
       <div className="tooltipsessions-container">
@@ -11,3 +13,11 @@ export default function ToolTypeSessions({ active, payload }) {
   }
   return null;
 }
+
+ToolTypeSessions.prototype={
+  active: PropTypes.bool.isRequired,
+  payload: PropTypes.array.isRequired,
+};
+
+export default ToolTypeSessions;
+

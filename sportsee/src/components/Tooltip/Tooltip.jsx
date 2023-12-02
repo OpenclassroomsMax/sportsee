@@ -1,7 +1,9 @@
 import React from "react";
 import "../Tooltip/Tooltip.css";
+import PropTypes from 'prop-types';
 
-export default function ToolType({ active, payload }) {
+
+function ToolType({ active, payload }) {
   if (active) {
     return (
       <div className="tooltip-container">
@@ -12,3 +14,10 @@ export default function ToolType({ active, payload }) {
   }
   return null;
 }
+
+ToolType.prototype={
+  active: PropTypes.bool,
+  payload: PropTypes.array,
+};
+
+export default ToolType;

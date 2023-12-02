@@ -1,7 +1,9 @@
 import React from "react";
 import "../Thumbnail/Thumbnail.css";
+import PropTypes from 'prop-types';
 
-export default function Thumbnail({ icon, info, text }) {
+
+function Thumbnail({ icon, info, text }) {
   return (
     <div className="thumbnail-container">
       <img src={icon} alt="calories icon" />
@@ -12,3 +14,11 @@ export default function Thumbnail({ icon, info, text }) {
     </div>
   );
 }
+
+Thumbnail.prototype={
+  icon: PropTypes.string.isRequired,
+  info: PropTypes.object.isRequired,
+  text: PropTypes.string.isRequired,
+};
+
+export default Thumbnail;

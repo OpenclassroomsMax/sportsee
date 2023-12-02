@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from 'prop-types'
+
 
 import {
   Radar,
@@ -10,12 +12,11 @@ import {
 } from "recharts";
 import "../RadarCharts/RadarCharts.css";
 
-export default function RadarCharts({ data }) {
+function RadarCharts({ data }) {
   const [performance, setPerformance] = useState();
 
   useEffect(() => {
     if (data) {
-      console.log(data.data);
       const formatData = data.data?.map((data) => {
         switch (data.kind) {
           case 1:
@@ -33,7 +34,7 @@ export default function RadarCharts({ data }) {
           default:
             return { ...data };
         }
-      }); /*console.log(formatData)*/
+      }); 
       setPerformance(formatData);
     }
   }, [data]);
@@ -63,10 +64,8 @@ export default function RadarCharts({ data }) {
   );
 }
 
-<PolarAngleAxis
-  dataKey="kind"
-  stroke="white"
-  tickLine={false}
-  axisLine={false}
-  tick={{ fontSize: 10 }}
-/>;
+RadarCharts.prototype={
+  data: PropTypes.object.isRequired,
+};
+
+export default RadarCharts;

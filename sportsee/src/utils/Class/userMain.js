@@ -7,3 +7,4 @@ export default class Userdata {
     this.keyData = keyData;
   }
 }
+

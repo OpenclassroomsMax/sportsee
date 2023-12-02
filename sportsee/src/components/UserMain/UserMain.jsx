@@ -1,8 +1,10 @@
 import React from "react";
+import PropTypes from 'prop-types'
+
 
 import "../UserMain/UserMain.css";
 
-export default function UserMain({ name }) {
+function UserMain({ name }) {
   return (
     <div className="header-containers_user">
       <h1 className="title_user">
@@ -14,3 +16,10 @@ export default function UserMain({ name }) {
     </div>
   );
 }
+
+UserMain.prototype={
+  name: PropTypes.string.isRequired,
+};
+
+export default UserMain;
+

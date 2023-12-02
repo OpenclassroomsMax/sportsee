@@ -43,8 +43,8 @@ export default function User() {
   ) {
     return <p>laoding...</p>;
   }
-  if (errorMain || errorActivity || errorAverageSession || errorPerformance) {
-    return <p>error</p>;
+  if (errorMain && errorActivity && errorAverageSession && errorPerformance) {
+    alert("Le serveur ne fonctionne plus");
   }
 
   return (
